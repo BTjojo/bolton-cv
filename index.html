@@ -1,350 +1,943 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bolton Bigin Anak Tumas - Software Engineer Resume</title>
+    <!-- Load Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Lucide Icons (for professional icons) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Load Font Awesome for social media icons -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* Custom Tailwind Configuration */
+      :root {
+        scroll-behavior: smooth;
+      }
+      /* Using Inter font as required */
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      /* Custom scrollbar styling for aesthetics */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+      }
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bolton Bigin Anak Tumas - Resume</title>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
-  <link rel="preload" as="style"
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&amp;family=Roboto:wght@300;400;500;700&amp;display=swap" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&amp;family=Roboto:wght@300;400;500;700&amp;display=swap"
-    media="print" onload="this.media='all'" />
-  <noscript>
-    <link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&amp;family=Roboto:wght@300;400;500;700&amp;display=swap" />
-  </noscript>
-  <link href="css/font-awesome/css/all.min.css?ver=1.2.1" rel="stylesheet">
-  <link href="css/mdb.min.css?ver=1.2.1" rel="stylesheet">
-  <link href="css/aos.css?ver=1.2.1" rel="stylesheet">
-  <link href="css/main.css?ver=1.2.1" rel="stylesheet">
-  <noscript>
-    <style type="text/css">
-      [data-aos] {
-        opacity: 1 !important;
-        transform: translate(0) scale(1) !important;
+      /* Responsive timeline line */
+      .timeline-line {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background-color: #e5e7eb; /* Gray-200 */
+        transform: translateX(-50%);
+      }
+
+      @media (max-width: 768px) {
+        .timeline-line {
+          left: 1rem;
+          transform: none;
+        }
       }
     </style>
-  </noscript>
-  <script>
-    // Auto-update year in footer
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-</head>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "primary-blue": "#1e40af", // Darker Blue for emphasis
+              "accent-light": "#3b82f6", // Medium Blue, similar to original 'info'
+              // Custom colors inspired by technology logos
+              "tech-docker": "#2496ed",
+              "tech-proxmox": "#e57e2a",
+              "tech-php": "#777bb3",
+              "tech-react": "#61dafb",
+              "tech-laravel": "#ff2d20",
+              "tech-mysql": "#00758F",
+              "tech-linux": "#333333",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
 
-<body class="bg-light" id="top">
-  <header class="d-print-none">
-    <div class="container text-center text-lg-left">
-      <div class="pt-4 clearfix">
-        <h1 class="site-title mb-0">Bolton Bigin Anak Tumas</h1>
-        <div class="site-nav">
-          <nav role="navigation">
-            <ul class="nav justify-content-center">
-              <li class="nav-item"><a class="nav-link" href="#about" title="About">About</a></li>
-              <li class="nav-item"><a class="nav-link" href="#skills" title="Skills">Skills</a></li>
-              <li class="nav-item"><a class="nav-link" href="#experience" title="Experience">Experience</a></li>
-              <li class="nav-item"><a class="nav-link" href="#education" title="Education">Education</a></li>
-              <li class="nav-item"><a class="nav-link" href="#projects" title="Projects">Projects</a></li>
-              <li class="nav-item"><a class="nav-link" href="#references" title="References">References</a></li>
-              <li class="nav-item"><a class="nav-link" href="#contact" title="Contact">Contact</a></li>
-            </ul>
+  <body class="bg-gray-50 text-gray-800" id="top">
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 shadow-md bg-white print:hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center py-4">
+          <h1 class="text-xl font-bold text-primary-blue">Bolton Tumas</h1>
+          <nav class="hidden md:flex space-x-6 text-sm font-medium">
+            <a
+              href="#about"
+              class="text-gray-600 hover:text-primary-blue transition duration-150"
+              >About</a
+            >
+            <a
+              href="#skills"
+              class="text-gray-600 hover:text-primary-blue transition duration-150"
+              >Skills</a
+            >
+            <a
+              href="#experience"
+              class="text-gray-600 hover:text-primary-blue transition duration-150"
+              >Experience</a
+            >
+            <a
+              href="#education"
+              class="text-gray-600 hover:text-primary-blue transition duration-150"
+              >Education</a
+            >
+            <a
+              href="#technologies"
+              class="text-gray-600 hover:text-primary-blue transition duration-150"
+              >Tech Stack</a
+            >
+            <a
+              href="#projects"
+              class="text-gray-600 hover:text-primary-blue transition duration-150"
+              >Projects</a
+            >
+            <a
+              href="#contact"
+              class="text-gray-600 hover:text-primary-blue transition duration-150"
+              >Contact</a
+            >
           </nav>
         </div>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <div class="page-content">
-    <div class="container">
-      <div class="resume-container">
-
-        <!-- Header Section -->
-        <div class="shadow-1-strong bg-white my-5" id="intro">
-          <div class="bg-info text-white">
-            <div class="cover bg-image"><img src="images/header-background.jpg" />
-              <div class="mask" style="background-color: rgba(0, 0, 0, 0.7);backdrop-filter: blur(2px);">
-                <div class="text-center p-5">
-                  <!-- <div class="avatar p-1"><img class="img-thumbnail shadow-2-strong" src="BT/images/avatar.jpg"
-                      width="160" height="160" /></div> -->
-                  <div class="header-bio mt-3">
-                    <h2 class="h1">Bolton Bigin Anak Tumas</h2>
-                    <p>Programmer</p>
-                    <div class="header-social mb-3 d-print-none">
-                      <nav role="navigation">
-                        <ul class="nav justify-content-center">
-                          <li class="nav-item"><a class="nav-link" href="https://github.com/BTjojo" title="GitHub"><i
-                                class="fab fa-github"></i></a></li>
-                          <li class="nav-item"><a class="nav-link" href="https://linkedin.com/in/bolton-tumas"
-                              title="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
-                          <li class="nav-item"><a class="nav-link" href="mailto:boltonbigin@gmail.com" title="Email"><i
-                                class="fas fa-envelope"></i></a></li>
-                        </ul>
-                      </nav>
-                    </div>
-                    <div class="d-print-none">
-                      <a class="btn btn-outline-light btn-lg shadow-sm mt-1 me-3" href="BT_CV_2025.pdf">Download
-                        CV</a>
-                      <a class="btn btn-info btn-lg shadow-sm mt-1" href="#contact">Hire Me</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+    <div class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
+      <main class="space-y-12">
+        <!-- Hero/Intro Section -->
+        <section
+          class="bg-gray-900 text-white rounded-xl shadow-xl overflow-hidden p-8 md:p-16 relative"
+          id="intro"
+        >
+          <!-- Updated background image with a relevant dark abstract theme -->
+          <div
+            class="absolute inset-0 bg-cover bg-center opacity-30"
+            style="
+              background-image: url('http://googleusercontent.com/image_collection/image_retrieval/9343979874422276675');
+            "
+          ></div>
+          <div class="relative z-10 text-center">
+            <h2 class="text-4xl sm:text-5xl font-extrabold mb-2 leading-tight">
+              Bolton Bigin Anak Tumas
+            </h2>
+            <p class="text-2xl font-light text-accent-light mb-6">
+              Software Engineer
+            </p>
+            <div class="flex justify-center space-x-6 text-2xl mb-8">
+              <a
+                class="hover:text-accent-light transition duration-300"
+                href="https://github.com/BTjojo"
+                title="GitHub"
+                target="_blank"
+                ><i class="fab fa-github"></i
+              ></a>
+              <a
+                class="hover:text-accent-light transition duration-300"
+                href="https://linkedin.com/in/bolton-tumas"
+                title="LinkedIn"
+                target="_blank"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+              <a
+                class="hover:text-accent-light transition duration-300"
+                href="mailto:boltonbigin@gmail.com"
+                title="Email"
+                ><i class="fas fa-envelope"></i
+              ></a>
+            </div>
+            <div class="flex justify-center space-x-4 print:hidden">
+              <!-- Placeholder link, as I cannot generate the actual PDF for you -->
+              <a
+                class="px-6 py-3 bg-accent-light text-white font-semibold rounded-lg shadow-lg hover:bg-primary-blue transition duration-300 transform hover:scale-[1.02]"
+                href="BT_CV_2025.pdf"
+                target="_blank"
+                >Download CV</a
+              >
+              <a
+                class="px-6 py-3 border border-white text-white font-semibold rounded-lg hover:bg-white hover:text-gray-900 transition duration-300"
+                href="#contact"
+                >Contact Me</a
+              >
             </div>
           </div>
-        </div>
+        </section>
 
-        <!-- About -->
-        <div class="shadow-1-strong bg-white my-5 p-5" id="about">
-          <div class="row">
-            <div class="col-md-6">
-              <h2 class="h2 fw-light mb-4">About Me</h2>
-              <p>Resourceful and hands-on Software Engineer experienced in React Native mobile app development, backend
-                integration using native PHP, and web app development with Laravel. Strong in building RESTful APIs,
-                managing Linux-based environments, and deploying servers using Docker. Passionate about clean,
-                maintainable code and practical solutions.</p>
+        <!-- About Section -->
+        <section class="bg-white p-8 md:p-10 rounded-xl shadow-lg" id="about">
+          <h2
+            class="text-3xl font-semibold text-primary-blue mb-6 border-b pb-2"
+          >
+            About Me
+          </h2>
+          <div class="grid md:grid-cols-3 gap-8">
+            <div class="md:col-span-2">
+              <p class="text-md leading-relaxed text-gray-700">
+                Resourceful and hands-on
+                <span style="font-weight: bold">Software Engineer</span>
+                experienced in
+                <span style="font-weight: bold"
+                  >React Native mobile app development</span
+                >,
+                <span style="font-weight: bold"
+                  >backend integration using native PHP</span
+                >, and
+                <span style="font-weight: bold"
+                  >web app development with Laravel</span
+                >. Strong in
+                <span style="font-weight: bold">building RESTful APIs</span>,
+                <span style="font-weight: bold"
+                  >managing Linux-based environments</span
+                >, and
+                <span style="font-weight: bold"
+                  >deploying servers using Docker</span
+                >. Participates in
+                <span style="font-weight: bold">DevOps tasks</span>, setting up
+                and maintaining
+                <span style="font-weight: bold"
+                  >development and staging environments</span
+                >. Passionate about
+                <span style="font-weight: bold">clean, maintainable code</span>
+                and <span style="font-weight: bold">practical solutions</span>,
+                dedicated to solving
+                <span style="font-weight: bold"
+                  >complex technical challenges across the full stack</span
+                >.
+              </p>
             </div>
-            <div class="col-md-5 offset-lg-1">
-              <h2 class="h2 fw-light mb-4">Bio</h2>
-              <ul class="list-unstyled">
-                <li><strong>Age:</strong> 32</li>
-                <li><strong>Email:</strong> boltonbigin@gmail.com</li>
-                <li><strong>Phone:</strong> +60 14 391 4385</li>
-                <li><strong>Location:</strong> Kota Samarahan, Sarawak</li>
-                <li><strong>Date of Birth:</strong> 18 October 1993</li>
+            <div class="md:col-span-1 border-l md:pl-8 pt-4 md:pt-0">
+              <h3 class="text-xl font-medium mb-3">Bio Details</h3>
+              <ul class="space-y-2 text-gray-600">
+                <li><strong class="font-medium">Age:</strong> 32</li>
+                <li>
+                  <strong class="font-medium">Email:</strong>
+                  boltonbigin@gmail.com
+                </li>
+                <li>
+                  <strong class="font-medium">Phone:</strong> +60 14 391 4385
+                </li>
+                <li>
+                  <strong class="font-medium">Location:</strong> Kota Samarahan,
+                  Sarawak
+                </li>
+                <li>
+                  <strong class="font-medium">Date of Birth:</strong> 18 October
+                  1993
+                </li>
               </ul>
             </div>
           </div>
-        </div>
+        </section>
 
-        <!-- Skills -->
-        <div class="shadow-1-strong bg-white my-5 p-5" id="skills">
-          <h2 class="h2 fw-light mb-4">Technical Skills</h2>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="mb-3"><span class="fw-bolder">React Native / Expo</span>
-                <div class="progress my-2 rounded" style="height:20px">
-                  <div class="progress-bar bg-info" style="width:95%">Expert</div>
+        <!-- Skills Section -->
+        <section class="bg-white p-8 md:p-10 rounded-xl shadow-lg" id="skills">
+          <h2
+            class="text-3xl font-semibold text-primary-blue mb-8 border-b pb-2"
+          >
+            Technical Skills (Proficiency)
+          </h2>
+          <div class="grid md:grid-cols-2 gap-x-12 gap-y-6">
+            <!-- Column 1 -->
+            <div>
+              <div class="mb-4">
+                <span
+                  class="font-semibold text-lg flex justify-between items-center"
+                  >React Native / Expo
+                  <span class="text-sm font-normal text-gray-500"
+                    >Proficient</span
+                  ></span
+                >
+                <div class="w-full bg-gray-200 rounded-full h-2.5 mt-1">
+                  <div
+                    class="bg-accent-light h-2.5 rounded-full"
+                    style="width: 65%"
+                  ></div>
                 </div>
               </div>
-              <div class="mb-3"><span class="fw-bolder">PHP (Native / Laravel)</span>
-                <div class="progress my-2 rounded" style="height:20px">
-                  <div class="progress-bar bg-info" style="width:90%">Expert</div>
+              <div class="mb-4">
+                <span
+                  class="font-semibold text-lg flex justify-between items-center"
+                  >PHP (Native / Laravel)
+                  <span class="text-sm font-normal text-gray-500"
+                    >Advanced</span
+                  ></span
+                >
+                <div class="w-full bg-gray-200 rounded-full h-2.5 mt-1">
+                  <div
+                    class="bg-accent-light h-2.5 rounded-full"
+                    style="width: 75%"
+                  ></div>
                 </div>
               </div>
-              <div class="mb-3"><span class="fw-bolder">JavaScript / HTML5 / CSS3</span>
-                <div class="progress my-2 rounded" style="height:20px">
-                  <div class="progress-bar bg-info" style="width:85%">Advanced</div>
+              <div class="mb-4">
+                <span
+                  class="font-semibold text-lg flex justify-between items-center"
+                  >JavaScript / HTML5 / CSS3
+                  <span class="text-sm font-normal text-gray-500"
+                    >Expert</span
+                  ></span
+                >
+                <div class="w-full bg-gray-200 rounded-full h-2.5 mt-1">
+                  <div
+                    class="bg-accent-light h-2.5 rounded-full"
+                    style="width: 90%"
+                  ></div>
                 </div>
               </div>
             </div>
-            <div class="col-md-6">
-              <div class="mb-3"><span class="fw-bolder">MySQL / Database Design</span>
-                <div class="progress my-2 rounded" style="height:20px">
-                  <div class="progress-bar bg-info" style="width:85%">Advanced</div>
+            <!-- Column 2 -->
+            <div>
+              <div class="mb-4">
+                <span
+                  class="font-semibold text-lg flex justify-between items-center"
+                  >MySQL / Database Design
+                  <span class="text-sm font-normal text-gray-500"
+                    >Advanced</span
+                  ></span
+                >
+                <div class="w-full bg-gray-200 rounded-full h-2.5 mt-1">
+                  <div
+                    class="bg-accent-light h-2.5 rounded-full"
+                    style="width: 75%"
+                  ></div>
                 </div>
               </div>
-              <div class="mb-3"><span class="fw-bolder">Docker / Linux DevOps</span>
-                <div class="progress my-2 rounded" style="height:20px">
-                  <div class="progress-bar bg-info" style="width:80%">Proficient</div>
+              <div class="mb-4">
+                <span
+                  class="font-semibold text-lg flex justify-between items-center"
+                  >Docker / Linux DevOps
+                  <span class="text-sm font-normal text-gray-500"
+                    >Proficient</span
+                  ></span
+                >
+                <div class="w-full bg-gray-200 rounded-full h-2.5 mt-1">
+                  <div
+                    class="bg-accent-light h-2.5 rounded-full"
+                    style="width: 65%"
+                  ></div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </section>
 
-        <!-- Experience -->
-        <div class="shadow-1-strong bg-white my-5 p-5" id="experience">
-          <h2 class="h2 fw-light mb-4">Professional Experience</h2>
-          <div class="timeline">
-            <div class="timeline-card timeline-card-info">
-              <div class="timeline-head px-4 pt-3">
-                <div class="h5">Software Engineer <span class="text-muted h6">at Pasti Nyala Sdn Bhd</span></div>
-              </div>
-              <div class="timeline-body px-4 pb-4">
-                <div class="text-muted text-small mb-3">July 2024 – Present</div>
-                <ul>
-                  <li>Developed mobile apps using React Native with PHP API integration.</li>
-                  <li>Managed app store deployments (Play Store, App Store).</li>
-                  <li>Built web-based apps with PHP Native + Bootstrap.</li>
-                  <li>Configured Docker environments for multiple PHP versions.</li>
-                </ul>
-              </div>
-            </div>
+        <!-- Experience Section -->
+        <section
+          class="bg-white p-8 md:p-10 rounded-xl shadow-lg relative"
+          id="experience"
+        >
+          <h2
+            class="text-3xl font-semibold text-primary-blue mb-8 border-b pb-2"
+          >
+            Professional Experience
+          </h2>
 
-            <div class="timeline-card timeline-card-info">
-              <div class="timeline-head px-4 pt-3">
-                <div class="h5">Software Engineer <span class="text-muted h6">at SM Digital Innovation Sdn Bhd</span>
+          <!-- Timeline Container -->
+          <div class="relative">
+            <div class="timeline-line hidden md:block"></div>
+            <!-- Vertical line for desktop -->
+
+            <!-- Experience Item 1 -->
+            <div
+              class="mb-10 flex flex-col md:flex-row md:items-start md:even:flex-row-reverse"
+            >
+              <div class="md:w-1/2 md:p-4 pr-10 relative">
+                <!-- New Date Header -->
+                <div
+                  class="bg-accent-light text-white text-sm font-semibold py-1 px-3 rounded-t-lg rounded-b-none inline-block mb-[-2px] shadow-lg"
+                >
+                  July 2024 – Present
+                </div>
+                <div
+                  class="bg-primary-blue text-white p-4 rounded-xl rounded-tl-none shadow-2xl md:even:ml-auto"
+                >
+                  <h3 class="text-xl font-semibold mb-1">Software Engineer</h3>
+                  <p class="text-sm mb-2">Pasti Nyala Sdn Bhd</p>
+                  <ul class="list-disc list-inside space-y-1 text-sm">
+                    <li>
+                      Developed cross-platform mobile apps using
+                      <span class="font-bold">React Native</span> with PHP API
+                      integration.
+                    </li>
+                    <li>
+                      Managed and executed app store deployments (Play Store,
+                      App Store).
+                    </li>
+                    <li>
+                      Built web-based applications with
+                      <span class="font-bold">PHP Native</span> and Bootstrap.
+                    </li>
+                    <li>
+                      Configured
+                      <span class="font-bold">Docker</span> environments for
+                      isolated development and testing, supporting multiple PHP
+                      versions.
+                    </li>
+                  </ul>
                 </div>
               </div>
-              <div class="timeline-body px-4 pb-4">
-                <div class="text-muted text-small mb-3">March 2021 – July 2024</div>
-                <ul>
-                  <li>Developed web systems for government and construction projects using Laravel and PHP.</li>
-                  <li>Built demo Laravel web apps for client proposals.</li>
-                  <li>Handled server monitoring and setup for client infrastructure.</li>
-                </ul>
+              <div
+                class="hidden md:flex items-center justify-center w-10 h-10 rounded-full bg-primary-blue text-white absolute top-0 left-1/2 -translate-x-1/2"
+              >
+                <i data-lucide="briefcase" class="w-5 h-5"></i>
               </div>
             </div>
 
-            <div class="timeline-card timeline-card-info">
-              <div class="timeline-head px-4 pt-3">
-                <div class="h5">IT Executive <span class="text-muted h6">at Misarma Enterprise Sdn Bhd</span></div>
+            <!-- Experience Item 2 -->
+            <div
+              class="mb-10 flex flex-col md:flex-row md:items-start md:even:flex-row-reverse"
+            >
+              <div class="md:w-1/2 md:p-4 pr-10 relative">
+                <!-- New Date Header -->
+                <div
+                  class="bg-accent-light text-white text-sm font-semibold py-1 px-3 rounded-t-lg rounded-b-none inline-block mb-[-2px] shadow-lg md:even:float-right"
+                >
+                  March 2021 – July 2024
+                </div>
+                <div
+                  class="bg-primary-blue text-white p-4 rounded-xl rounded-tl-none md:even:rounded-tr-none md:even:rounded-tl-xl shadow-2xl md:even:mr-auto"
+                >
+                  <h3 class="text-xl font-semibold mb-1">Software Engineer</h3>
+                  <p class="text-sm mb-2">SM Digital Innovation Sdn Bhd</p>
+                  <ul class="list-disc list-inside space-y-1 text-sm">
+                    <li>
+                      Developed web systems for government and construction
+                      projects using <span class="font-bold">Laravel</span> and
+                      PHP.
+                    </li>
+                    <li>
+                      Built demo <span class="font-bold">Laravel</span> web
+                      applications for client proposals and rapid prototyping.
+                    </li>
+                    <li>
+                      Handled server monitoring, configuration, and setup for
+                      client infrastructure on Linux.
+                    </li>
+                  </ul>
+                </div>
               </div>
-              <div class="timeline-body px-4 pb-4">
-                <div class="text-muted text-small mb-3">July 2018 – March 2021</div>
-                <ul>
-                  <li>Developed company website using HTML/CSS.</li>
-                  <li>Configured and deployed testing servers with SIGOS GmbH.</li>
-                  <li>Developed cross-platform employment app using Flutter.</li>
-                </ul>
+              <div
+                class="hidden md:flex items-center justify-center w-10 h-10 rounded-full bg-primary-blue text-white absolute top-0 left-1/2 -translate-x-1/2"
+              >
+                <i data-lucide="layers" class="w-5 h-5"></i>
+              </div>
+            </div>
+
+            <!-- Experience Item 3 -->
+            <div
+              class="mb-10 flex flex-col md:flex-row md:items-start md:even:flex-row-reverse"
+            >
+              <div class="md:w-1/2 md:p-4 pr-10 relative">
+                <!-- New Date Header -->
+                <div
+                  class="bg-accent-light text-white text-sm font-semibold py-1 px-3 rounded-t-lg rounded-b-none inline-block mb-[-2px] shadow-lg"
+                >
+                  July 2018 – March 2021
+                </div>
+                <div
+                  class="bg-primary-blue text-white p-4 rounded-xl rounded-tl-none shadow-2xl md:even:ml-auto"
+                >
+                  <h3 class="text-xl font-semibold mb-1">IT Executive</h3>
+                  <p class="text-sm mb-2">Misarma Enterprise Sdn Bhd</p>
+                  <ul class="list-disc list-inside space-y-1 text-sm">
+                    <li>
+                      Developed and maintained the company website using
+                      <span class="font-bold">HTML/CSS</span>.
+                    </li>
+                    <li>
+                      Configured and deployed testing servers in collaboration
+                      with <span class="font-bold">SIGOS GmbH</span> for quality
+                      assurance.
+                    </li>
+                    <li>
+                      Developed a cross-platform employment application using
+                      <span class="font-bold">Flutter</span>.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div
+                class="hidden md:flex items-center justify-center w-10 h-10 rounded-full bg-primary-blue text-white absolute top-0 left-1/2 -translate-x-1/2"
+              >
+                <i data-lucide="code" class="w-5 h-5"></i>
+              </div>
+            </div>
+
+            <!-- Experience Item 4 (Internship) -->
+            <div
+              class="mb-10 flex flex-col md:flex-row md:items-start md:even:flex-row-reverse"
+            >
+              <div class="md:w-1/2 md:p-4 pr-10 relative">
+                <!-- New Date Header -->
+                <div
+                  class="bg-accent-light text-white text-sm font-semibold py-1 px-3 rounded-t-lg rounded-b-none inline-block mb-[-2px] shadow-lg md:even:float-right"
+                >
+                  Sept 2017 – Feb 2018
+                </div>
+                <div
+                  class="bg-primary-blue text-white p-4 rounded-xl rounded-tl-none md:even:rounded-tr-none md:even:rounded-tl-xl shadow-2xl md:even:mr-auto"
+                >
+                  <h3 class="text-xl font-semibold mb-1">Intern</h3>
+                  <p class="text-sm mb-2">Petronas Carigali Sdn Bhd, Miri</p>
+                  <ul class="list-disc list-inside space-y-1 text-sm">
+                    <li>
+                      Assisted the IT team in general network infrastructure
+                      maintenance and troubleshooting within the office
+                      environment.
+                    </li>
+                    <li>
+                      Participated in data management projects, including using
+                      SQL to query and report on operational data.
+                    </li>
+                    <li>
+                      Provided technical support and executed minor
+                      configuration changes for departmental applications,
+                      improving user efficiency.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div
+                class="hidden md:flex items-center justify-center w-10 h-10 rounded-full bg-primary-blue text-white absolute top-0 left-1/2 -translate-x-1/2"
+              >
+                <i data-lucide="award" class="w-5 h-5"></i>
+              </div>
+            </div>
+
+            <!-- Experience Item 5 (Part-Time) -->
+            <div
+              class="flex flex-col md:flex-row md:items-start md:even:flex-row-reverse"
+            >
+              <div class="md:w-1/2 md:p-4 pr-10 relative">
+                <!-- New Date Header -->
+                <div
+                  class="bg-accent-light text-white text-sm font-semibold py-1 px-3 rounded-t-lg rounded-b-none inline-block mb-[-2px] shadow-lg"
+                >
+                  Oct 2012 – Jan 2013
+                </div>
+                <div
+                  class="bg-primary-blue text-white p-4 rounded-xl rounded-tl-none shadow-2xl md:even:ml-auto"
+                >
+                  <h3 class="text-xl font-semibold mb-1">
+                    Configuration Assistant (Part-Time)
+                  </h3>
+                  <p class="text-sm mb-2">Emart Miri</p>
+                  <ul class="list-disc list-inside space-y-1 text-sm">
+                    <li>
+                      Executed minor software configurations and updates on
+                      Point-of-Sale (POS) systems and back-office terminals.
+                    </li>
+                    <li>
+                      Assisted with inventory system setup and digital product
+                      catalog updates.
+                    </li>
+                    <li>
+                      Performed troubleshooting and basic maintenance for retail
+                      networking equipment and peripherals.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div
+                class="hidden md:flex items-center justify-center w-10 h-10 rounded-full bg-primary-blue text-white absolute top-0 left-1/2 -translate-x-1/2"
+              >
+                <i data-lucide="store" class="w-5 h-5"></i>
               </div>
             </div>
           </div>
-        </div>
+        </section>
 
-        <!-- Education -->
-        <div class="shadow-1-strong bg-white my-5 p-5" id="education">
-          <h2 class="h2 fw-light mb-4">Education</h2>
-          <div class="timeline">
-            <div class="timeline-card timeline-card-success">
-              <div class="timeline-head px-4 pt-3">
-                <div class="h5">Bachelor of Computer Science (Multimedia Computing) <span class="text-muted h6">from
-                    UNIMAS</span></div>
-              </div>
-              <div class="timeline-body px-4 pb-4">
-                <div class="text-muted text-small mb-3">2014 – 2018 · CGPA 2.83</div>
-                <p>Final Year Project: Fishing Location Android Application · Internship at Petronas Carigali Sdn Bhd
-                  (Miri).</p>
+        <!-- Education Section -->
+        <section
+          class="bg-white p-8 md:p-10 rounded-xl shadow-lg relative"
+          id="education"
+        >
+          <h2
+            class="text-3xl font-semibold text-primary-blue mb-8 border-b pb-2"
+          >
+            Education
+          </h2>
+
+          <!-- Education Item 1 - Updated to Blue Theme -->
+          <div
+            class="mb-8 p-6 border border-blue-200 bg-blue-50 rounded-lg shadow-sm"
+          >
+            <h3 class="text-xl font-semibold text-primary-blue">
+              Bachelor of Computer Science (Multimedia Computing)
+            </h3>
+            <p class="text-gray-600 mb-1">
+              Universiti Malaysia Sarawak (UNIMAS)
+            </p>
+            <p class="text-sm italic mb-2">2014 – 2018 &bull; CGPA 2.83</p>
+            <p class="text-sm text-gray-500">
+              Final Year Project: Fishing Location Android Application.
+            </p>
+          </div>
+
+          <!-- Education Item 2 - Updated to Blue Theme -->
+          <div
+            class="p-6 border border-blue-200 bg-blue-50 rounded-lg shadow-sm"
+          >
+            <h3 class="text-xl font-semibold text-primary-blue">
+              Pre-University (Physics & Computer Science)
+            </h3>
+            <p class="text-gray-600 mb-1">Kolej Matrikulasi Labuan</p>
+            <p class="text-sm italic">2012 – 2013 &bull; CGPA 2.00</p>
+          </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section
+          class="bg-white p-8 md:p-10 rounded-xl shadow-lg"
+          id="projects"
+        >
+          <h2
+            class="text-3xl font-semibold text-primary-blue mb-8 border-b pb-2"
+          >
+            Key Projects
+          </h2>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <!-- Project 1 -->
+            <div
+              class="p-6 border border-gray-100 rounded-lg shadow-md hover:shadow-xl transition duration-300"
+            >
+              <h4
+                class="text-xl font-semibold text-accent-light mb-2 flex items-center"
+              >
+                <i data-lucide="package" class="w-5 h-5 mr-2"></i>Container Yard
+                Management App
+              </h4>
+              <p class="text-gray-600 text-sm">
+                Mobile application built on
+                <span class="font-bold">React Native</span> with
+                <span class="font-bold">PHP API</span> and MySQL. Features
+                include push notifications, offline data synchronization, and
+                <span class="font-bold">GPS-based auto-refresh</span> for
+                dynamic queue updates, significantly improving operational
+                efficiency.
+              </p>
+            </div>
+            <!-- Project 2 -->
+            <div
+              class="p-6 border border-gray-100 rounded-lg shadow-md hover:shadow-xl transition duration-300"
+            >
+              <h4
+                class="text-xl font-semibold text-accent-light mb-2 flex items-center"
+              >
+                <i data-lucide="building-2" class="w-5 h-5 mr-2"></i
+                >Construction Management System
+              </h4>
+              <p class="text-gray-600 text-sm">
+                Digital platform built with
+                <span class="font-bold">Laravel</span> to digitalize project
+                workflows for major construction companies. System incorporates
+                comprehensive task tracking, secure document management, and
+                internal progress dashboards for stakeholders.
+              </p>
+            </div>
+            <!-- Project 3 -->
+            <div
+              class="p-6 border border-gray-100 rounded-lg shadow-md hover:shadow-xl transition duration-300"
+            >
+              <h4
+                class="text-xl font-semibold text-accent-light mb-2 flex items-center"
+              >
+                <i data-lucide="cloud-cog" class="w-5 h-5 mr-2"></i>Dockerised
+                Development Environment
+              </h4>
+              <p class="text-gray-600 text-sm">
+                Set up and maintained robust
+                <span class="font-bold">Docker</span> environments on Linux
+                servers, providing reliable infrastructure supporting multiple
+                <span class="font-bold">PHP</span> and
+                <span class="font-bold">MySQL</span> versions for seamless
+                cross-project compatibility and deployment.
+              </p>
+            </div>
+            <!-- Project 4 -->
+            <div
+              class="p-6 border border-gray-100 rounded-lg shadow-md hover:shadow-xl transition duration-300"
+            >
+              <h4
+                class="text-xl font-semibold text-accent-light mb-2 flex items-center"
+              >
+                <i data-lucide="bar-chart-3" class="w-5 h-5 mr-2"></i
+                >Construction Monitoring Web System
+              </h4>
+              <p class="text-gray-600 text-sm">
+                Developed with <span class="font-bold">Native PHP</span> for a
+                Sarawak government agency, featuring modules for site status,
+                automated report generation, and secure role-based access
+                control.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Technologies Used Section - REDESIGNED as a 3-column grid with large cards -->
+        <section
+          class="bg-white p-8 md:p-10 rounded-xl shadow-lg"
+          id="technologies"
+        >
+          <h2
+            class="text-3xl font-semibold text-primary-blue mb-8 border-b pb-2"
+          >
+            Technologies & Infrastructure Stack
+          </h2>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Tech Card: Docker -->
+            <div
+              class="p-8 text-center rounded-xl shadow-lg bg-white border border-tech-docker/30 hover:shadow-2xl transition duration-300 transform hover:scale-[1.03]"
+            >
+              <img
+                src="https://www.docker.com/wp-content/uploads/2022/03/Moby-logo.png"
+                alt="Docker Logo"
+                class="w-12 h-12 mx-auto mb-3"
+              />
+              <h4 class="text-xl font-bold text-tech-docker">Docker</h4>
+              <p class="text-sm text-gray-500 mt-1">
+                Containerization & Isolated Environments
+              </p>
+            </div>
+
+            <!-- Tech Card: Proxmox -->
+            <div
+              class="p-8 text-center rounded-xl shadow-lg bg-white border border-tech-proxmox/30 hover:shadow-2xl transition duration-300 transform hover:scale-[1.03]"
+            >
+              <img
+                src="https://tse2.mm.bing.net/th/id/OIP.GJ6YUugZPH0Wj9SnMOVqZgHaF2?rs=1&pid=ImgDetMain&o=7&rm=3"
+                alt="Proxmox Logo"
+                class="w-12 h-12 mx-auto mb-3"
+              />
+              <h4 class="text-xl font-bold text-tech-proxmox">Proxmox</h4>
+              <p class="text-sm text-gray-500 mt-1">
+                Virtualization Platform (VM/LXC)
+              </p>
+            </div>
+
+            <!-- Tech Card: Native PHP -->
+            <div
+              class="p-8 text-center rounded-xl shadow-lg bg-white border border-tech-php/30 hover:shadow-2xl transition duration-300 transform hover:scale-[1.03]"
+            >
+              <img
+                src="https://tse3.mm.bing.net/th/id/OIP.SMFfZwsAQQnMM2airUS-gQHaE8?w=3000&h=2000&rs=1&pid=ImgDetMain&o=7&rm=3"
+                alt="PHP Logo"
+                class="w-12 h-12 mx-auto mb-3"
+              />
+              <h4 class="text-xl font-bold text-tech-php">Native PHP</h4>
+              <p class="text-sm text-gray-500 mt-1">Core Backend Development</p>
+            </div>
+
+            <!-- Tech Card: React / React Native -->
+            <div
+              class="p-8 text-center rounded-xl shadow-lg bg-white border border-tech-react/30 hover:shadow-2xl transition duration-300 transform hover:scale-[1.03]"
+            >
+              <img
+                src="https://iconape.com/wp-content/png_logo_vector/react-logo.png"
+                alt="React Logo"
+                class="w-12 h-12 mx-auto mb-3"
+              />
+              <h4 class="text-xl font-bold text-tech-react">React / RN</h4>
+              <p class="text-sm text-gray-500 mt-1">Mobile & Web Frontend</p>
+            </div>
+
+            <!-- Tech Card: Laravel -->
+            <div
+              class="p-8 text-center rounded-xl shadow-lg bg-white border border-tech-laravel/30 hover:shadow-2xl transition duration-300 transform hover:scale-[1.03]"
+            >
+              <img
+                src="https://logospng.org/download/laravel/logo-laravel-icon-1024.png"
+                alt="React Logo"
+                class="w-12 h-12 mx-auto mb-3"
+              />
+              <h4 class="text-xl font-bold text-tech-laravel">Laravel</h4>
+              <p class="text-sm text-gray-500 mt-1">
+                PHP Web Application Framework
+              </p>
+            </div>
+
+            <!-- Tech Card: MySQL -->
+            <div
+              class="p-8 text-center rounded-xl shadow-lg bg-white border border-tech-mysql/30 hover:shadow-2xl transition duration-300 transform hover:scale-[1.03]"
+            >
+              <img
+                src="https://tse3.mm.bing.net/th/id/OIP.wsus-_9qxZ6aYYVI8lj5LwHaGB?rs=1&pid=ImgDetMain&o=7&rm=3"
+                alt="React Logo"
+                class="w-12 h-12 mx-auto mb-3"
+              />
+              <h4 class="text-xl font-bold text-tech-mysql">MySQL</h4>
+              <p class="text-sm text-gray-500 mt-1">
+                Relational Database Management
+              </p>
+            </div>
+
+            <!-- Tech Card: Linux Command -->
+            <div
+              class="p-8 text-center rounded-xl shadow-lg bg-white border border-tech-linux/30 hover:shadow-2xl transition duration-300 transform hover:scale-[1.03]"
+            >
+              <i
+                data-lucide="terminal"
+                class="w-12 h-12 mx-auto mb-3 text-tech-linux fill-tech-linux/10 stroke-2"
+              ></i>
+              <h4 class="text-xl font-bold text-tech-linux">Linux Command</h4>
+              <p class="text-sm text-gray-500 mt-1">
+                Server Administration & DevOps
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- References Section -->
+        <section
+          class="bg-white p-8 md:p-10 rounded-xl shadow-lg"
+          id="references"
+        >
+          <h2
+            class="text-3xl font-semibold text-primary-blue mb-6 border-b pb-2"
+          >
+            References
+          </h2>
+          <div class="space-y-4 text-gray-700">
+            <div
+              class="p-4 border-l-4 border-accent-light bg-gray-50 rounded-md"
+            >
+              <strong class="font-medium">Mr. Arzwan Rahman</strong> – General
+              Manager, SM Digital Innovation Sdn Bhd<br />
+              <span class="text-sm text-gray-500"
+                ><i class="fas fa-phone mr-1"></i> 011-2638 9696 &bull;
+                <i class="far fa-envelope mr-1"></i>
+                arzwanrahman@gmail.com</span
+              >
+            </div>
+            <div
+              class="p-4 border-l-4 border-accent-light bg-gray-50 rounded-md"
+            >
+              <strong class="font-medium">Ms. Andrea Diweng</strong> – System
+              Analyst, Pasti Nyala Sdn Bhd<br />
+              <span class="text-sm text-gray-500"
+                ><i class="fas fa-phone mr-1"></i> 013-8220292 &bull;
+                <i class="far fa-envelope mr-1"></i>
+                andreajdiweng@gmail.com</span
+              >
+            </div>
+            <div
+              class="p-4 border-l-4 border-accent-light bg-gray-50 rounded-md"
+            >
+              <strong class="font-medium">Ms. Jasmine Liu</strong> – HR Manager,
+              Misarma Enterprise Sdn Bhd<br />
+              <span class="text-sm text-gray-500"
+                ><i class="fas fa-phone mr-1"></i> 016-6604567</span
+              >
+            </div>
+          </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="bg-white p-8 md:p-10 rounded-xl shadow-lg" id="contact">
+          <h2
+            class="text-3xl font-semibold text-primary-blue mb-8 border-b pb-2"
+          >
+            Get in Touch
+          </h2>
+          <div class="grid md:grid-cols-2 gap-8">
+            <div>
+              <p class="text-gray-600 mb-4">
+                I'm currently open to new opportunities. Feel free to contact me
+                via phone or email for discussions regarding full-stack
+                development, mobile projects, or DevOps roles.
+              </p>
+              <div class="space-y-3">
+                <div class="flex items-center text-lg text-gray-700">
+                  <i
+                    data-lucide="phone"
+                    class="w-5 h-5 mr-3 text-accent-light"
+                  ></i>
+                  <span>+60 14 391 4385</span>
+                </div>
+                <div class="flex items-center text-lg text-gray-700">
+                  <i
+                    data-lucide="mail"
+                    class="w-5 h-5 mr-3 text-accent-light"
+                  ></i>
+                  <span>boltonbigin@gmail.com</span>
+                </div>
+                <div class="flex items-center text-lg text-gray-700">
+                  <i
+                    data-lucide="map-pin"
+                    class="w-5 h-5 mr-3 text-accent-light"
+                  ></i>
+                  <span>Kota Samarahan, Sarawak, Malaysia</span>
+                </div>
               </div>
             </div>
-            <div class="timeline-card timeline-card-success">
-              <div class="timeline-head px-4 pt-3">
-                <div class="h5">Pre-University (Physics & Computer Science) <span class="text-muted h6">from Kolej
-                    Matrikulasi Labuan</span></div>
-              </div>
-              <div class="timeline-body px-4 pb-4">
-                <div class="text-muted text-small mb-3">2012 – 2013 · CGPA 2.00</div>
+            <div class="print:hidden">
+              <!-- Map is now responsive using Tailwind utilities -->
+              <div
+                class="relative overflow-hidden rounded-lg shadow-lg"
+                style="padding-bottom: 75%; height: 0"
+              >
+                <iframe
+                  src="https://www.google.com/maps?q=Kota+Samarahan,+Sarawak&output=embed"
+                  class="absolute top-0 left-0 w-full h-full border-0"
+                  allowfullscreen=""
+                  loading="lazy"
+                ></iframe>
               </div>
             </div>
           </div>
-        </div>
-
-        <!-- Projects -->
-        <div class="shadow-1-strong bg-white my-5 p-5" id="projects">
-          <h2 class="h2 fw-light mb-4">Projects</h2>
-          <div class="row row-cols-1 row-cols-md-2 g-4">
-
-            <div class="col">
-              <div class="card h-100 border-0 shadow-sm">
-                <div class="card-body">
-                  <h5 class="card-title text-info"><i class="fas fa-box me-2"></i>Container Yard Management App</h5>
-                  <p class="card-text">Developed using <strong>React Native</strong> with <strong>PHP API</strong> and
-                    <strong>MySQL</strong>. Features push notifications, offline mode, and GPS-based auto-refresh for
-                    queue
-                    updates.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="card h-100 border-0 shadow-sm">
-                <div class="card-body">
-                  <h5 class="card-title text-info"><i class="fas fa-hard-hat me-2"></i>Construction Management System
-                  </h5>
-                  <p class="card-text">Built with <strong>Laravel</strong> to digitalize project workflows for
-                    construction
-                    companies. Includes task tracking, document management, and internal progress dashboards.</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="card h-100 border-0 shadow-sm">
-                <div class="card-body">
-                  <h5 class="card-title text-info"><i class="fas fa-cubes me-2"></i>Dockerised Development Environment
-                  </h5>
-                  <p class="card-text">Set up and maintained <strong>Docker</strong> environments on Linux servers
-                    supporting
-                    multiple <strong>PHP</strong> and <strong>MySQL</strong> versions for cross-project compatibility.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="card h-100 border-0 shadow-sm">
-                <div class="card-body">
-                  <h5 class="card-title text-info"><i class="fas fa-chart-line me-2"></i>Construction Monitoring Web
-                    System</h5>
-                  <p class="card-text">Developed with <strong>Native PHP</strong> to track construction progress for a
-                    government agency in Sarawak, featuring modules for site status, reports, and role-based access.</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="card h-100 border-0 shadow-sm">
-                <div class="card-body">
-                  <h5 class="card-title text-info"><i class="fas fa-globe me-2"></i>Company Website & Monitoring Setup
-                  </h5>
-                  <p class="card-text">Created and maintained <strong>HTML/CSS</strong> company website integrated with
-                    <strong>SIGOS GmbH</strong> systems for fraud detection and automated server testing.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-
-        <!-- References -->
-        <div class="shadow-1-strong bg-white my-5 p-5" id="references">
-          <h2 class="h2 fw-light mb-4">References</h2>
-          <ul>
-            <li><strong>Mr. Arzwan Rahman</strong> – General Manager, SM Digital Innovation Sdn Bhd<br>📞 011-2638 9696
-              · ✉️ arzwanrahman@gmail.com</li>
-            <li><strong>Ms. Andrea Diweng</strong> – System Analyst, Pasti Nyala Sdn Bhd<br>📞 013-8220292 · ✉️
-              andreajdiweng@gmail.com</li>
-            <li><strong>Ms. Jasmine Liu</strong> – HR Manager, Misarma Enterprise Sdn Bhd<br>📞 016-6604567</li>
-          </ul>
-        </div>
-
-        <!-- Contact -->
-        <div class="shadow-1-strong bg-white my-5 p-5" id="contact">
-          <h2 class="h2 fw-light mb-4">Contact</h2>
-          <div class="row mb-4">
-            <div class="col-md-5">
-              <div class="h6"><i class="fas fa-phone pe-2 text-muted"></i> +60 14 391 4385</div>
-              <div class="h6"><i class="far fa-envelope pe-2 text-muted"></i> boltonbigin@gmail.com</div>
-            </div>
-            <div class="col-md-7 d-print-none">
-              <iframe src="https://www.google.com/maps?q=Kota+Samarahan,+Sarawak&output=embed" width="500" height="400"
-                style="border:0;width:100%;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-          </div>
-        </div>
-      </div>
+        </section>
+      </main>
     </div>
-  </div>
 
-  <footer class="pt-4 pb-4 text-muted text-center d-print-none">
-    <div class="container">
-      <div class="my-3">
-        <div class="h4">Bolton Bigin Anak Tumas</div>
+    <!-- Footer -->
+    <footer
+      class="mt-12 py-6 bg-gray-100 text-gray-500 text-center text-sm print:hidden"
+    >
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="my-2">
+          &copy; <span id="year">2024</span> Bolton Bigin Anak Tumas. All rights
+          reserved.
+        </div>
       </div>
-      <div class="text-small">
-        <div class="mb-1">&copy; <span id="year"></span> Bolton Bigin Anak Tumas.</div>
-      </div>
-    </div>
-  </footer>
+    </footer>
 
-  <script src="scripts/mdb.min.js?ver=1.2.1"></script>
-  <script src="scripts/aos.js?ver=1.2.1"></script>
-  <script src="scripts/main.js?ver=1.2.1"></script>
-</body>
+    <!-- Initialize Lucide Icons and Year -->
+    <script>
+      // Auto-update year in footer
+      document.getElementById("year").textContent = new Date().getFullYear();
 
+      // Initialize Lucide Icons for dynamic insertion
+      document.addEventListener("DOMContentLoaded", () => {
+        if (typeof lucide !== "undefined") {
+          lucide.createIcons();
+        }
+      });
+    </script>
+  </body>
 </html>
